@@ -1,12 +1,20 @@
 import requests
 from bs4 import BeautifulSoup
 
+from parse_page import parse_page
+
+
+def decode_link(link):
+    lens_code_with_page, lens_name = link.split('-Lens_review-')
+    lens_code = lens_code_with_page.split('.')[0]
+    return lens_code, lens_name
 
 def parse_list(url):
-    soup = BeautifulSoup(requests.get(url).text)
+    soup = BeautifulSoup(requests.get(url).text, 'lxml')
     for anchor in soup.select('.product-content h2 a'):
-        lens_name = anchor['href'][:-5]
-        print(lens_name)
+        lens_link = anchor['href'][:-5]
+        lens_code, lens_name = decode_link(lens_link)
+        parse_page(lens_code, lens_name)
 
 
 def main():

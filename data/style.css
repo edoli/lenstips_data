@@ -1,0 +1,12 @@
+table {
+    margin: auto;
+}
+
+.name {
+    width: 128px;
+    word-wrap: break-word;
+}
+
+img {
+    width: 400px;
+}

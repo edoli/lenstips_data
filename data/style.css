@@ -10,3 +10,16 @@ table {
 img {
     width: 400px;
 }
+
+a {
+    text-decoration: none;
+    border: none;
+    color: #ffffff;
+    background-color: #1B9CFC;
+    border-radius: 4px;
+    padding: 12px 24px;
+}
+
+a:hover {
+    background-color: #1294F4;
+}
